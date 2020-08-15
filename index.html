@@ -18,6 +18,7 @@ permalink: /
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body>
+        <div class="beforecontent"></div>
         <div class="content">
             {% if site.front_img %}
             <img src="{{ site.front_img_path }}" id="fullscreen">
@@ -104,7 +105,7 @@ permalink: /
                     {% endif %}
 
                     {% if site.blog_url %}
-                    <li><a class="fa fa-2x fa-tags" href="{{ site.baseurl }}{{ site.blog_url }}"><span class="description">Blog</span></a></li>
+                    <li><a class="fa fa-2x fa-book" href="{{ site.baseurl }}{{ site.blog_url }}"><span class="description">Blog</span></a></li>
                     {% endif %}
 
                     {% if site.email %}
@@ -115,7 +116,14 @@ permalink: /
                     <li><a class="fa fa-2x fa-key" href="{{ site.public_key_url }}"><span class="description">PGP Key</span></a></li>
                     {% endif %}
                 </ul>
+                    <div class="multi-button">
+                        <a href="/about">About</a>
+                        <a href="/blog">Posts</a>
+                        <a href="/projects">Projects</a>
+                    </div>
+                    
+                
         </div>
-
+        <div class="aftercontent"></div>
     </body>
 </html>

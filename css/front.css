@@ -36,89 +36,218 @@ h3 {
     color: white;
     padding-bottom: 20px;
     font-weight: thin;
+
 }
-.content {
+
+.beforecontent{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5));
+    flex: 0 1 100px;
     padding-top: 100px;
+}
+
+
+.content {
+  
     padding-bottom: 40px;
+    box-sizing: border-box;
+
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
+
+.aftercontent{
+    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.5));
+    min-height: 10%;
+}
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 li {
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
     border-radius: 100%;
     border: 2px solid white;
     color: white;
     margin: 8px;
     display: inline-block;
     list-style: none;
+    background: var(--color-bg);
     width: 65px;
     height: 65px;
 }
 li:hover {
-    color: white;
+    color: black;
     text-decoration: none;
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
     transition: 500ms;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 1);
+    width: 75px;
+    height: 75px;
+    padding-top: 4px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 a {
     color: white;
     padding: 15px;
     text-decoration: none;
+}
+
+a:hover{
+    color: black;
 }
 .description {
     display: none;
 }
 
-@media (max-width: 450px) {
-ul {
-    text-align: center;
-}
-li {
-    border-radius: 0%;
-    border: none;
-    color: white;
-    margin: 8px;
-    display: block;
-    list-style: none;
-    margin: 10px 0px;
-    text-align: center;
-    height: auto;
-    width: auto;
-}
-li:hover {
-    background-color: none;
-    transition: none;
-}
-a {
-    text-align: justify;
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
-    padding: 15px;
-    padding-left: 30px;
-    width: 70%;
-}
-a:hover {
+
+
+:root {
+    --border-size: 0.125rem;
+    --duration: 250ms;
+    --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --font-family: monospace;
+    --color-primary: black;
+    --color-bg: rgba(0,0,0,0.3);
+    --color-secondary: white;
+    --color-tertiary: dodgerblue;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --space: 1rem;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .multi-button {
+    align-self: center;
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
     transition: 500ms;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-decoration: none;
+    margin: 0 auto;
+    display: flex;
+    width: 35%;
+    box-shadow: var(--shadow) 4px 4px;
+    margin-top: 3rem;
+  }
+  
+  .multi-button a {
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    flex-grow: 1;
+    cursor: pointer;
+    position: relative;
+    padding:
+      calc(var(--space) / 1.125)
+      var(--space)
+      var(--space);
+    border: var(--border-size) solid var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: var(--color-bg);
+    font-size: 1.5rem;
+    font-family: var(--font-family);
+    text-transform: lowercase;
+    text-shadow: var(--shadow) 2px 2px;
+    transition: flex-grow var(--duration) var(--ease);
+  }
+  
+  .multi-button a + a {
+    border-left: var(--border-size) solid var(--color-secondary);
+    margin-left: calc(var(--border-size) * -1);
+  }
+  
+  .multi-button a:hover,
+  .multi-button a:focus {
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    flex-grow: 1.5;
+    color: var(--color-primary);
+    outline: none;
+    text-shadow: none;
+    background-color: var(--color-secondary);
+    font-weight: bold;
+  }
+
+  .multi-button:hover{
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    width: 40%;
+  }
+  
+  .multi-button a:focus {
+    outline: var(--border-size) dashed var(--color-primary);
+    outline-offset: calc(var(--border-size) * -3);
+  }
+  
+  .multi-button:hover a:focus:not(:hover) {
+    flex-grow: 1;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+    outline-color: var(--color-tertiary);
+  }
+  
+  .multi-button a:active {
+    transform: translateY(var(--border-size));
+  }
+
+
+  @media (max-width: 1500px) {
+
+    .multi-button {
+        align-self: center;
+        -webkit-transition: 500ms;
+        -moz-transition: 500ms;
+        transition: 500ms;
+        margin: 0 auto;
+        display: flex;
+        width: 50%;
+        box-shadow: var(--shadow) 4px 4px;
+        margin-top: 3rem;
+      }
+    
+    .multi-button:hover{
+        -webkit-transition: 500ms;
+        -moz-transition: 500ms;
+        transition: 500ms;
+        width: 55%;
+      }
+      
 }
-.description {
-    display: inline-block;
-    color: white;
-    font-family: Arial;
-    margin-left: 40px;
-}
-.content {
-    padding-top: 60px;
-}
+
+  @media (max-width: 650px) {
+
+    .content {
+        padding-top: 60px;
+    }
+
+    .multi-button {
+        align-self: center;
+        -webkit-transition: 500ms;
+        -moz-transition: 500ms;
+        transition: 500ms;
+        margin: 0 AUTO;
+        display: flex;
+        width: 90%;
+        box-shadow: var(--shadow) 4px 4px;
+        margin-top: 3rem;
+      }
+    
+    .multi-button:hover{
+        -webkit-transition: 500ms;
+        -moz-transition: 500ms;
+        transition: 500ms;
+        width: 98%;
+      }
+      
 }
